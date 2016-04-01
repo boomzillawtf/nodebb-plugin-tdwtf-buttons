@@ -1,0 +1,11 @@
+{
+  "id": "nodebb-plugin-tdwtf-buttons",
+  "name": "Composer Buttons for WTDWTF",
+  "description": "Composer Buttons for WTDWTF",
+  "url": "https://github.com//nodebb-tdwtf-buttons.git",
+  "library": "./library.js",
+  "hooks": [],
+  "less": [],
+  "scripts": ["./buttons.js"]
+  
+}

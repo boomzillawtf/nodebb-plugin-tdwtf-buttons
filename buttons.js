@@ -20,11 +20,11 @@ $('document').ready(function() {
 		});
 		composer.addButton('fa fa-eye-slash', function(textarea, selectionStart, selectionEnd) {
 			if (selectionStart === selectionEnd) {
-				controls.insertIntoTextarea(textarea, '<details><summary>caption</summary>content</details>');
-				controls.updateTextareaSelection(textarea, selectionStart + 35, selectionStart + 42);
+				controls.insertIntoTextarea(textarea, '[spoiler]text[/spoiler]');
+				controls.updateTextareaSelection(textarea, selectionStart + 9, selectionStart + 13);
 			} else {
-				controls.wrapSelectionInTextareaWith(textarea, '<details><summary>caption</summary>', '</details>');
-				controls.updateTextareaSelection(textarea, selectionEnd + 18, selectionEnd + 25);
+				controls.wrapSelectionInTextareaWith(textarea, '[spoiler]', '[/spoiler]');
+				controls.updateTextareaSelection(textarea, selectionStart + 9, selectionEnd + 9);
 			}
 		});
 	});

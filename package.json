@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-tdwtf-buttons",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Composer Buttons for WTDWTF",
   "main": "library.js",
   "nbbpm": {

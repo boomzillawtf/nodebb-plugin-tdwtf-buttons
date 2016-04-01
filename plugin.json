@@ -1,11 +1,17 @@
 {
-  "id": "nodebb-plugin-tdwtf-buttons",
-  "name": "Composer Buttons for WTDWTF",
-  "description": "Composer Buttons for WTDWTF",
-  "url": "https://github.com//nodebb-tdwtf-buttons.git",
-  "library": "./library.js",
-  "hooks": [],
-  "less": [],
-  "scripts": ["./buttons.js"]
-  
+	"id": "nodebb-plugin-tdwtf-buttons",
+	"name": "Composer Buttons for WTDWTF",
+	"description": "Composer Buttons for WTDWTF",
+	"url": "https://github.com//nodebb-tdwtf-buttons.git",
+	"library": "./library.js",
+	"hooks": [
+		{ "hook": "filter:parse.post", "method": "parse" },
+		{ "hook": "filter:parse.signature", "method": "parse" },
+		{ "hook": "filter:parse.raw", "method": "parse" }
+	],
+	"less": ["style.less"],
+	"scripts": [
+		"./buttons.js",
+		"./spoiler.js"
+	]
 }

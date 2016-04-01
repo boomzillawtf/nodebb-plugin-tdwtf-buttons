@@ -18,6 +18,15 @@ $('document').ready(function() {
 				controls.updateTextareaSelection(textarea, selectionEnd + 15, selectionEnd + 19);
 			}
 		});
+		composer.addButton('fa fa-eye-slash', function(textarea, selectionStart, selectionEnd) {
+			if (selectionStart === selectionEnd) {
+				controls.insertIntoTextarea(textarea, '<details><summary>caption</summary>content</details>');
+				controls.updateTextareaSelection(textarea, selectionStart + 35, selectionStart + 42);
+			} else {
+				controls.wrapSelectionInTextareaWith(textarea, '<details><summary>caption</summary>', '</details>');
+				controls.updateTextareaSelection(textarea, selectionEnd + 18, selectionEnd + 25);
+			}
+		});
 	});
 });
 

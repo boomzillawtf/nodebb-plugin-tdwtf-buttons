@@ -1,5 +1,3 @@
-// Empty for now, eventually code to parse posts will go here
-
 'use strict';
 
 var plugins = module.parent.require('./plugins'),
@@ -22,17 +20,16 @@ plugin.parse = function(data, callback) {
 		// signature
 		data.userData.signature = parser(data.userData.signature);
 	}
-	
+
 	callback(null, data);
 }
 
 // replace [spoiler] fake tags with real tags
 function parser(data) {
 	data = data
-		.replace('[spoiler]', '<span class="blur" onclick="toggleBlur(this);">')
+		.replace('[spoiler]', '<span class="spoiler blur" onclick="toggleBlur(this);">')
 		.replace('[/spoiler]', '</span>');
 	return data;
 }
 
 module.exports = plugin;
-

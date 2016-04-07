@@ -36,13 +36,13 @@ function parser(data) {
 		return preTag;
 	});
 
+	// replace image and multi-line spoilers
+	data = data.replace(/\[spoiler\](.*?(\n|<img).*?)\[\/spoiler\]/g, function(_, match) {
+		return '<div class="blur" onclick="toggleBlur(this);">' + match + '</div>';
+	});
 	// replace inline spoilers
 	data = data.replace(/\[spoiler\](.*?)\[\/spoiler\]/g, function(_, match) {
-		return '<span class="spoiler blur" onclick="toggleBlur(this);">' + match + '</span>';
-	});
-	// replace multi-line spoilers
-	data = data.replace(/\[spoiler\]((.|\n)*?)\[\/spoiler\]/g, function(_, match) {
-		return '<div class="spoiler blur" onclick="toggleBlur(this);">' + match + '</div>';
+		return '<span class="blur" onclick="toggleBlur(this);">' + match + '</span>';
 	});
 
 	// replace guid with original escaped text

@@ -18,13 +18,13 @@ $(document).ready(function() {
 			.blur {\
 				background-color: transparent;\
 				color: rgba(0,0,0,0);\
-				text-shadow: 0 0 5px .1px rgba(0,0,0,0.5);\
+				text-shadow: 0 0 5px .1px rgba(0,0,0,0.5), 0 0 5px .1px white;\
 		}");
 	} else {
 		style.html("\
 			.blur {\
 				color: transparent;\
-				text-shadow: 0 0 5px rgba(0,0,0,0.5);\
+				text-shadow: 0 0 5px rgba(0,0,0,0.5), 0 0 5px white;\
 		}");
 	}
 	style.appendTo("head");

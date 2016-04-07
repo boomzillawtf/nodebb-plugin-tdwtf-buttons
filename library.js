@@ -26,13 +26,31 @@ plugin.parse = function(data, callback) {
 
 // replace [spoiler] fake tags with real tags
 function parser(data) {
+	
+	// replace escaped text with a guid temporarily
+	var pre = /(?:<pre(.|\n)*?<\/pre>|<code(.|\n)*?<\/code>)/g;
+	var preBlocks = [];
+	var preTag = '88888888-8888-4888-2888-888888888888'.replace(/[82]/g, (c) => (Math.random() * c * 2 ^ 8).toString(16));
+	data = data.replace(pre, function(match) {
+		preBlocks.push(match);
+		return preTag;
+	});
+
 	// replace inline spoilers
-	var spoilers = /\[spoiler\].*?\[\/spoiler\]/g;
-	data = data.replace(spoilers, function(match) {
-		return '<span class="spoiler blur" onclick="toggleBlur(this);">' + match.substring(9, match.length - 10) + '</span>';
+	data = data.replace(/\[spoiler\](.*?)\[\/spoiler\]/g, function(_, match) {
+		return '<span class="spoiler blur" onclick="toggleBlur(this);">' + match + '</span>';
 	});
 	// replace multi-line spoilers
-	data = data.replace('[spoiler]', '<div class="spoiler blur" onclick="toggleBlur(this);">').replace('[/spoiler]', '</div>');
+	data = data.replace(/\[spoiler\]((.|\n)*?)\[\/spoiler\]/g, function(_, match) {
+		return '<div class="spoiler blur" onclick="toggleBlur(this);">' + match + '</div>';
+	});
+
+	// replace guid with original escaped text
+	var preTagRegex = new RegExp(preTag, 'g');
+	data = data.replace(preTagRegex, function() {
+		return preBlocks.shift();
+	});
+
 	return data;
 }
 

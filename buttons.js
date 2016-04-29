@@ -1,32 +1,27 @@
+// formatting.addButtonDispatch() is used here because 
+// composer.addButton() is missing the argument for the 
+// tooltip title.  This argument was added in composer version 3.0.27.  
 $('document').ready(function() {
-	require(['composer', 'composer/controls'], function(composer, controls) {
-		composer.addButton('fa fa-eraser', function(textarea, selectionStart, selectionEnd) {
+	require(['composer', 'composer/controls', 'composer/formatting'], function(composer, controls, formatting) {
+		formatting.addButtonDispatch('del-ins', function(textarea, selectionStart, selectionEnd) {
 			if (selectionStart === selectionEnd) {
 				controls.insertIntoTextarea(textarea, '<del></del><ins></ins>');
 				controls.updateTextareaSelection(textarea, selectionStart + 5, selectionStart + 5);
 			} else {
-				controls.wrapSelectionInTextareaWith(textarea, '<del>', '</del><ins>text</ins>');
-				controls.updateTextareaSelection(textarea, selectionEnd + 16, selectionEnd + 20);
+				controls.wrapSelectionInTextareaWith(textarea, '<del>', '</del><ins></ins>');
+				controls.updateTextareaSelection(textarea, selectionEnd + 16, selectionEnd + 16);
 			}
 		});
-		composer.addButton('fa fa-info-circle', function(textarea, selectionStart, selectionEnd) {
+		formatting.addButtonDispatch('abbr', function(textarea, selectionStart, selectionEnd) {
 			if (selectionStart === selectionEnd) {
-				controls.insertIntoTextarea(textarea, '<abbr title="title"></abbr>');
-				controls.updateTextareaSelection(textarea, selectionStart + 13, selectionStart + 18);
+				controls.insertIntoTextarea(textarea, '<abbr title=""></abbr>');
+				controls.updateTextareaSelection(textarea, selectionStart + 13, selectionStart + 13);
 			} else {
-				controls.wrapSelectionInTextareaWith(textarea, '<abbr title="', '">Text</abbr>');
-				controls.updateTextareaSelection(textarea, selectionEnd + 15, selectionEnd + 19);
-			}
-		});
-		composer.addButton('fa fa-eye-slash', function(textarea, selectionStart, selectionEnd) {
-			if (selectionStart === selectionEnd) {
-				controls.insertIntoTextarea(textarea, '[spoiler]text[/spoiler]');
-				controls.updateTextareaSelection(textarea, selectionStart + 9, selectionStart + 13);
-			} else {
-				controls.wrapSelectionInTextareaWith(textarea, '[spoiler]', '[/spoiler]');
-				controls.updateTextareaSelection(textarea, selectionStart + 9, selectionEnd + 9);
+				controls.wrapSelectionInTextareaWith(textarea, '<abbr title="">', '</abbr>');
+				controls.updateTextareaSelection(textarea, selectionStart + 13, selectionStart + 13);
 			}
 		});
 	});
 });
+
 

@@ -21,6 +21,15 @@ $('document').ready(function() {
 				controls.updateTextareaSelection(textarea, selectionStart + 13, selectionStart + 13);
 			}
 		});
+		formatting.addButtonDispatch('spoiler', function(textarea, selectionStart, selectionEnd) {
+			if (selectionStart === selectionEnd) {
+				controls.insertIntoTextarea(textarea, '[spoiler][/spoiler]');
+				controls.updateTextareaSelection(textarea, selectionStart + 9, selectionStart + 9);
+			} else {
+				controls.wrapSelectionInTextareaWith(textarea, '[spoiler]', '[/spoiler]');
+				controls.updateTextareaSelection(textarea, selectionStart + 9, selectionEnd + 9);
+			}
+		});
 	});
 });
 

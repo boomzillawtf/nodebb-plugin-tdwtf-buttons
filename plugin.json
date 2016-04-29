@@ -7,11 +7,17 @@
 	"defaultLang": "en_GB",
 	"library": "./library.js",
 	"hooks": [
-		{ "hook": "filter:composer.formatting", "method": "registerFormatting" }
+		{ "hook": "filter:composer.formatting", "method": "registerFormatting" },
+		{ "hook": "filter:parse.post", "method": "parse" },
+		{ "hook": "filter:parse.signature", "method": "parse" },
+		{ "hook": "filter:parse.raw", "method": "parse" }
 	],
-	"less": [],
+	"less": [
+		"style.less"
+	],
 	"scripts": [
-		"./buttons.js"	
+		"./buttons.js",
+		"./spoiler.js"
 	]
 }
 

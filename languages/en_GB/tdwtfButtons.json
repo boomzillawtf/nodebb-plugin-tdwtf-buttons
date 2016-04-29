@@ -1,4 +1,5 @@
 {
     "del-ins": "del/ins correction",
-    "abbr" : "add abbr tag"
+    "abbr" : "add abbr tag",
+    "spoiler" : "add [spoiler] tag"
 }

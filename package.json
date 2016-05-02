@@ -19,6 +19,9 @@
   "bugs": {
     "url": "https://github.com/NedFodder/nodebb-plugin-tdwtf-buttons/issues"
   },
-  "homepage": "https://github.com/NedFodder/nodebb-plugin-tdwtf-buttons#readme"
+  "homepage": "https://github.com/NedFodder/nodebb-plugin-tdwtf-buttons#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "winston": "^2.2.0"
+  }
 }
-

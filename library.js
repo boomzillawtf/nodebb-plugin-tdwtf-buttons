@@ -21,20 +21,24 @@ tdwtfButtons.parse = function(data, callback) {
 
 	if (data && typeof data === 'string') {
 		// preview
-		data = parser(data);
+		data = tdwtfButtons.parseSpoiler(data);
 	} else if (data.postData && data.postData.content) {
 		// post
-		data.postData.content = parser(data.postData.content);
+		data.postData.content = tdwtfButtons.parseSpoiler(data.postData.content);
 	} else if (data.userData && data.userData.signature) {
 		// signature
-		data.userData.signature = parser(data.userData.signature);
+		data.userData.signature = tdwtfButtons.parseSpoiler(data.userData.signature);
 	}
 
 	callback(null, data);
 }
 
 // replace [spoiler] fake tags with real tags
-function parser(data) {
+tdwtfButtons.parseSpoiler = function(data) {
+
+	if (data === null || typeof data !== 'string') {
+		data = '';
+	}
 	
 	// replace escaped text with a guid temporarily
 	var pre = /(?:<pre(.|\n)*?<\/pre>|<code(.|\n)*?<\/code>)/g;

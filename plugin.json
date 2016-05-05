@@ -16,8 +16,8 @@
 		"style.less"
 	],
 	"scripts": [
-		"./buttons.js",
-		"./spoiler.js"
+		"public/buttons.js",
+		"public/spoiler.js"
 	]
 }
 

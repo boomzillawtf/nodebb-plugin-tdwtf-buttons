@@ -1,6 +1,6 @@
-// formatting.addButtonDispatch() is used here because 
-// composer.addButton() is missing the argument for the 
-// tooltip title.  This argument was added in composer version 3.0.27.  
+// formatting.addButtonDispatch() is used here because
+// composer.addButton() is missing the argument for the
+// tooltip title.  This argument was added in composer version 3.0.27.
 $('document').ready(function() {
 	require(['composer', 'composer/controls', 'composer/formatting'], function(composer, controls, formatting) {
 		formatting.addButtonDispatch('del-ins', function(textarea, selectionStart, selectionEnd) {

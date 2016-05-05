@@ -2,9 +2,9 @@
 
 var tdwtfButtons = {};
 
-// This is needed to add the tooltip title to the composer because 
+// This is needed to add the tooltip title to the composer because
 // composer.addButton() is missing an argument.  This argument was added
-// in composer version 3.0.27.  
+// in composer version 3.0.27.
 tdwtfButtons.registerFormatting = function(data, callback) {
 	var formatting = [
 		{name: 'del-ins', className: 'fa fa-eraser', title: '[[tdwtfButtons:del-ins]]'},
@@ -14,8 +14,8 @@ tdwtfButtons.registerFormatting = function(data, callback) {
 
 	data.options = data.options.concat(formatting);
 
-	callback(null, data);	
-}
+	callback(null, data);
+};
 
 tdwtfButtons.parse = function(data, callback) {
 
@@ -31,7 +31,7 @@ tdwtfButtons.parse = function(data, callback) {
 	}
 
 	callback(null, data);
-}
+};
 
 // replace [spoiler] fake tags with real tags
 tdwtfButtons.parseSpoiler = function(data) {
@@ -43,7 +43,9 @@ tdwtfButtons.parseSpoiler = function(data) {
 	// replace escaped text with a guid temporarily
 	var pre = /(?:<pre(.|\n)*?<\/pre>|<code(.|\n)*?<\/code>)/g;
 	var preBlocks = [];
-	var preTag = '88888888-8888-4888-2888-888888888888'.replace(/[82]/g, (c) => (Math.random() * c * 2 ^ 8).toString(16));
+	var preTag = '88888888-8888-4888-2888-888888888888'.replace(/[82]/g, function(c) {
+		(Math.random() * c * 2 ^ 8).toString(16);
+	});
 	data = data.replace(pre, function(match) {
 		preBlocks.push(match);
 		return preTag;
@@ -69,7 +71,7 @@ tdwtfButtons.parseSpoiler = function(data) {
 	});
 
 	return data;
-}
+};
 
 module.exports = tdwtfButtons;
 

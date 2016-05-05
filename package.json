@@ -7,7 +7,9 @@
     "compatibility": "^1.0.0"
   },
   "scripts": {
-    "test": "mocha ./tests"
+    "lint": "eslint .",
+    "test": "eslint . && npm run unit_tests",
+    "unit_tests": "istanbul cover _mocha -- ./tests"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,8 @@
   "homepage": "https://github.com/NedFodder/nodebb-plugin-tdwtf-buttons#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^2.9.0",
+    "istanbul": "^0.4.3",
     "mocha": "^2.4.5",
     "winston": "^2.2.0"
   }

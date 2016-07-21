@@ -57,6 +57,11 @@ describe('tdwtfButtons:', () => {
 				'block of text.[/spoiler]</code></pre>\nThe end.';
 			tdwtfButtons.parseSpoiler(post).should.equal(post);
 		});
+		it('should not convert spoilers in decorated code blocks', () => {
+			const post = 'This is an introduction.\n\n<pre class="markdown-highlight"><code class="hljs java">[spoiler]This is a hidden<br />\n' +
+				'block of text.[/spoiler]</code></pre>\nThe end.';
+			tdwtfButtons.parseSpoiler(post).should.equal(post);
+		});
 	});
 	
 	describe('The spoiler plugin hook', () => {

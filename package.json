@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-tdwtf-buttons",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Composer Buttons for WTDWTF",
   "main": "library.js",
   "nbbpm": {
@@ -11,14 +11,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NedFodder/nodebb-plugin-tdwtf-buttons.git"
+    "url": "git+https://github.com/boomzillawtf/nodebb-plugin-tdwtf-buttons.git"
   },
   "keywords": [],
   "author": "NedFodder",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/NedFodder/nodebb-plugin-tdwtf-buttons/issues"
+    "url": "https://github.com/boomzillawtf/nodebb-plugin-tdwtf-buttons/issues"
   },
-  "homepage": "https://github.com/NedFodder/nodebb-plugin-tdwtf-buttons#readme"
+  "homepage": "https://github.com/boomzillawtf/nodebb-plugin-tdwtf-buttons#readme"
 }
-

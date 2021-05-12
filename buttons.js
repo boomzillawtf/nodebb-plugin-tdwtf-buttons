@@ -8,8 +8,8 @@ $('document').ready(function() {
 				controls.insertIntoTextarea(textarea, '<del></del><ins></ins>');
 				controls.updateTextareaSelection(textarea, selectionStart + 5, selectionStart + 5);
 			} else {
-				controls.wrapSelectionInTextareaWith(textarea, '<del>', '</del><ins></ins>');
-				controls.updateTextareaSelection(textarea, selectionEnd + 16, selectionEnd + 16);
+				var wrapDelta = controls.wrapSelectionInTextareaWith(textarea, '<del>', '</del><ins></ins>');
+				controls.updateTextareaSelection(textarea, selectionEnd + 16 + wrapDelta[0], selectionEnd + 16 - wrapDelta[1]);
 			}
 		});
 		formatting.addButtonDispatch('abbr', function(textarea, selectionStart, selectionEnd) {
@@ -17,8 +17,8 @@ $('document').ready(function() {
 				controls.insertIntoTextarea(textarea, '<abbr title=""></abbr>');
 				controls.updateTextareaSelection(textarea, selectionStart + 13, selectionStart + 13);
 			} else {
-				controls.wrapSelectionInTextareaWith(textarea, '<abbr title="">', '</abbr>');
-				controls.updateTextareaSelection(textarea, selectionStart + 13, selectionStart + 13);
+				var wrapDelta = controls.wrapSelectionInTextareaWith(textarea, '<abbr title="">', '</abbr>');
+				controls.updateTextareaSelection(textarea, selectionStart + 13 + wrapDelta[0], selectionStart + 13 - wrapDelta[1]);
 			}
 		});
 	});
